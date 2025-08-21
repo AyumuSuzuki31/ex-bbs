@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.ex_bbs.domain.Article;
-import com.example.ex_bbs.repository.ArticleRepository;
+import com.example.ex_bbs.service.ArticleService;
 
 /**
  * 記事一覧画面を表示するクラスです.
@@ -21,20 +21,20 @@ import com.example.ex_bbs.repository.ArticleRepository;
 public class ArticleController {
 
   @Autowired
-  private ArticleRepository articleRepository;
+  private ArticleService articleService;
 
   /**
    * 記事一覧画面を表示します.
    * 全ての記事を新しい順で取得し、画面に表示します.
    * 
-   * @param model ビューに渡すデータを格納するModelオブジェクト
+   * @param modelに渡すデータを格納するModelオブジェクト
    * @return 記事一覧画面("index")
    */
 
-  @RequestMapping("/")
+  @RequestMapping("/index")
   public String index(Model model) {
-    List<Article> articles = articleRepository.findAll();
-    
+
+    List<Article> articles = articleService.findAll();
     model.addAttribute("articles", articles);
     
     return "index";

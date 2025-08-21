@@ -15,8 +15,8 @@
   <hr>
   
   <div th:each="article : ${articles}">
-    投稿者名: <span th:text="${article.name}"></span><br>
-    投稿内容: <br><br>
+    投稿者名： <span th:text="${article.name}"></span><br>
+    投稿内容： <br><br>
     <span th:text="${article.content}"></span><br><br>
     <button type="submit">記事削除</button><br><br>
     <hr>  
