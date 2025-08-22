@@ -34,7 +34,7 @@ public class ArticleController {
 
   @RequestMapping("/index")
   public String index(Model model) {
-    List<Article> articles = articleService.findAll();
+    List<Article> articles = articleService.findAllWithComment();
     model.addAttribute("articles", articles);
     return "index";
   }
