@@ -27,4 +27,13 @@ public class ArticleService {
     public List<Article> findAll() {
         return articleRepository.findAll();
     }
+
+    /**
+     * 記事を新規登録します.
+     * 
+     * @param article 登録する記事情報
+     */
+    public void insert(Article article) {
+      articleRepository.insert(article);
+    }
 }
