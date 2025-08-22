@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.ex_bbs.domain.Article;
+import com.example.ex_bbs.domain.Comment;
 import com.example.ex_bbs.repository.ArticleRepository;
+import com.example.ex_bbs.repository.CommentRepository;
 
 /**
  * 記事に関するビジネスロジックを提供するサービスクラスです.
@@ -20,6 +22,9 @@ public class ArticleService {
     
     @Autowired
     private ArticleRepository articleRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
     
     /**
      * 全ての記事を取得します.
@@ -38,4 +43,23 @@ public class ArticleService {
     public void insert(Article article) {
       articleRepository.insert(article);
     }
+
+    /**
+     * 全ての記事とそれに関するコメントを取得します.
+     * 
+     * @return コメント付き記事一覧
+     */
+
+     public List<Article> findAllWithComment() {
+      List<Article> articles = articleRepository.findAll();
+
+      for (Article article : articles) {
+        List<Comment> comments = commentRepository.findByArticleId(article.getId());
+        article.setCommentList(comments);
+      }
+
+      return articles;
+     }
+
+
 }

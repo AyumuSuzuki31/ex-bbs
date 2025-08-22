@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.ex_bbs.domain.Article;
-import com.example.ex_bbs.service.ArticleService;
 import com.example.ex_bbs.form.ArticleForm;
+import com.example.ex_bbs.service.ArticleService;
 
 /**
  * 記事一覧画面を表示するクラスです.
@@ -29,12 +29,12 @@ public class ArticleController {
    * 全ての記事を新しい順で取得し、画面に表示します。
    * 
    * @param modelに渡すデータを格納するModelオブジェクト
-   * @return 記事一覧画面("index")
+   * @return 記事一覧画面
    */
 
   @RequestMapping("/index")
   public String index(Model model) {
-    List<Article> articles = articleService.findAll();
+    List<Article> articles = articleService.findAllWithComment();
     model.addAttribute("articles", articles);
     return "index";
   }
@@ -53,6 +53,6 @@ public class ArticleController {
     article.setName(form.getName());
     article.setContent(form.getContent());
     articleService.insert(article);
-    return "redirect:/index";
+    return "redirect:/board/index";
    }
 }
