@@ -19,6 +19,12 @@
     投稿内容： <br><br>
     <span th:text="${article.content}" style="font-weight: bold;"></span><br><br>
     <button type="submit">記事削除</button><br><br>
+
+    <div th:each="comment : ${article.commentList}">
+      コメント者名：<span th:text="{comment.name}"></span>
+      コメント内容：<br><br>
+      <span th:text="${comment.content}"></span><br><br>
+    </div>
     
     <hr>
   </div>
