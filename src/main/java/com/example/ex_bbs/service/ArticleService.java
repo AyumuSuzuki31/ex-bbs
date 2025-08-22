@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.ex_bbs.domain.Article;
 import com.example.ex_bbs.domain.Comment;
@@ -16,6 +17,7 @@ import com.example.ex_bbs.repository.CommentRepository;
  * @author suzukiayumu
  */
 @Service
+@Transactional
 public class ArticleService {
     
     @Autowired
