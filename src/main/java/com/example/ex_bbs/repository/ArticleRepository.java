@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.example.ex_bbs.domain.Article;
@@ -46,4 +48,16 @@ public class ArticleRepository {
     String sql = "SELECT id, name, content FROM articles ORDER BY id DESC";
     return template.query(sql, ARTICLE_ROW_MAPPER);
    }
+
+   /**
+    * 記事を新規登録します.
+    * 
+    * @param article 登録する記事情報
+    */
+
+    public void insert(Article article) {
+      String sql = "INSERT INTO articles (name, content) VALUES (:name, :content)";
+      SqlParameterSource param = new BeanPropertySqlParameterSource(article);
+      template.update(sql, param);
+    }
 }

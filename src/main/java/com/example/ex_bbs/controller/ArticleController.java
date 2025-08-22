@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.ex_bbs.domain.Article;
 import com.example.ex_bbs.service.ArticleService;
+import com.example.ex_bbs.form.ArticleForm;
 
 /**
  * 記事一覧画面を表示するクラスです.
@@ -33,10 +34,25 @@ public class ArticleController {
 
   @RequestMapping("/index")
   public String index(Model model) {
-
     List<Article> articles = articleService.findAll();
     model.addAttribute("articles", articles);
-    
     return "index";
   }
+
+  /**
+   * 記事を投稿します.
+   * フォームから送信された記事情報をデータベースに保存します。
+   * 
+   * @param form 投稿フォームデータ
+   * @return 記事一覧画面へのリダイレクト
+   */
+
+   @RequestMapping("/insertArticle")
+   public String insertArticle(ArticleForm form) {
+    Article article = new Article();
+    article.setName(form.getName());
+    article.setContent(form.getContent());
+    articleService.insert(article);
+    return "redirect:/index";
+   }
 }
