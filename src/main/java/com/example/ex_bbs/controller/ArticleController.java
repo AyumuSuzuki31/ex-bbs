@@ -17,7 +17,7 @@ import com.example.ex_bbs.service.ArticleService;
  */
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/board")
 public class ArticleController {
 
   @Autowired
