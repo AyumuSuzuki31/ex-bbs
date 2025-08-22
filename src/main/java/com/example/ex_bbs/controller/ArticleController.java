@@ -53,6 +53,6 @@ public class ArticleController {
     article.setName(form.getName());
     article.setContent(form.getContent());
     articleService.insert(article);
-    return "redirect:/index";
+    return "redirect:/board/index";
    }
 }
