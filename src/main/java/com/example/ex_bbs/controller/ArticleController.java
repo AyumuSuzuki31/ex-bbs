@@ -41,6 +41,7 @@ public class ArticleController {
 
   /**
    * 記事を投稿します.
+   * フォームから送信された記事情報をデータベースに保存します.
    * 
    * @param form 投稿フォームデータ
    * @return 記事一覧画面へのリダイレクト
