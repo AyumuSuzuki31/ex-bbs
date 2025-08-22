@@ -18,7 +18,7 @@ import com.example.ex_bbs.form.ArticleForm;
  */
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/board")
 public class ArticleController {
 
   @Autowired
@@ -26,7 +26,7 @@ public class ArticleController {
 
   /**
    * 記事一覧画面を表示します.
-   * 全ての記事を新しい順で取得し、画面に表示します.
+   * 全ての記事を新しい順で取得し、画面に表示します。
    * 
    * @param modelに渡すデータを格納するModelオブジェクト
    * @return 記事一覧画面("index")
@@ -41,7 +41,7 @@ public class ArticleController {
 
   /**
    * 記事を投稿します.
-   * フォームから送信された記事情報をデータベースに保存します.
+   * フォームから送信された記事情報をデータベースに保存します。
    * 
    * @param form 投稿フォームデータ
    * @return 記事一覧画面へのリダイレクト

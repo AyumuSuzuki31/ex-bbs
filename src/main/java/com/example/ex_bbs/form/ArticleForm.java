@@ -2,7 +2,7 @@ package com.example.ex_bbs.form;
 
 /**
  * 記事投稿用のフォームクラスです.
- * 画面からの入力値を受け取ります.
+ * 画面からの入力値を受け取ります。
  * 
  * @author suzukiayumu
  */

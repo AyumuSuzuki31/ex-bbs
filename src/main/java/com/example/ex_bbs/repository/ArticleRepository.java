@@ -25,8 +25,8 @@ public class ArticleRepository {
 
 /**
  * ArticleのRowMapperです.
- * ResultSetから取得したデータをArticleオブジェクトに変換します.
- * データベースの各行をJavaオブジェクトに変換します.
+ * ResultSetから取得したデータをArticleオブジェクトに変換します。
+ * データベースの各行をJavaオブジェクトに変換します。
  */
 
   private static final RowMapper<Article> ARTICLE_ROW_MAPPER =(rs,i) -> {
