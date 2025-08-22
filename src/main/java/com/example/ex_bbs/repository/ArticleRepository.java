@@ -23,8 +23,8 @@ public class ArticleRepository {
 
 /**
  * ArticleのRowMapperです.
- * ResultSetから取得したデータをArticleオブジェクトに変換します.
- * データベースの各行をJavaオブジェクトに変換します.
+ * ResultSetから取得したデータをArticleオブジェクトに変換します。
+ * データベースの各行をJavaオブジェクトに変換します。
  */
 
   private static final RowMapper<Article> ARTICLE_ROW_MAPPER =(rs,i) -> {
@@ -37,7 +37,7 @@ public class ArticleRepository {
 
 /**
  * 全ての記事を取得します.
- * 新しい投稿が上に来るように降順で取得します.
+ * 新しい投稿が上に来るように降順で取得します。
  * 
  * @return 記事一覧（新しい投稿順）
  */

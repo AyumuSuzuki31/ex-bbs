@@ -25,7 +25,7 @@ public class ArticleController {
 
   /**
    * 記事一覧画面を表示します.
-   * 全ての記事を新しい順で取得し、画面に表示します.
+   * 全ての記事を新しい順で取得し、画面に表示します。
    * 
    * @param modelに渡すデータを格納するModelオブジェクト
    * @return 記事一覧画面("index")
